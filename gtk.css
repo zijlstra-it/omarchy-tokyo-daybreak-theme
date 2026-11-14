@@ -1,16 +1,16 @@
-/* Nous Research — light GTK / Libadwaita surfaces. */
-@define-color background #FFFFFF;
-@define-color foreground #12327A;
-@define-color surface #F7F9FC;
-@define-color surface_strong #EEF3FA;
-@define-color cobalt #164BFF;
-@define-color cobalt_soft #245CFF;
-@define-color lavender #6F8DDE;
-@define-color muted #6076A8;
-@define-color coral #B4233C;
-@define-color teal #157A5B;
-@define-color ochre #9A6700;
-@define-color sidebar_blue #DCE7FA;
+/* Tokyo Daybreak — light Tokyo Day GTK / Libadwaita surfaces. */
+@define-color background #e9ecf5;
+@define-color foreground #080808;
+@define-color surface #f7f8fc;
+@define-color surface_strong #dfe4f0;
+@define-color cobalt #3760bf;
+@define-color cobalt_soft #315fc9;
+@define-color lavender #8546b4;
+@define-color muted #596583;
+@define-color coral #ad3459;
+@define-color teal #456a27;
+@define-color ochre #80601c;
+@define-color sidebar_blue #c4d2f0;
 
 /* libadwaita named color variables */
 @define-color accent_bg_color @cobalt;
@@ -112,14 +112,14 @@ headerbar .title { color: @foreground; }
 
 /* Entries and text fields */
 entry, textview, spinbutton, combobox > box {
-  background-color: #FFFFFF;
+  background-color: @background;
   background-image: none;
   color: @foreground;
   border: 1px solid @surface_strong;
   caret-color: @cobalt;
 }
 entry:backdrop, textview:backdrop {
-  background-color: #FFFFFF;
+  background-color: @background;
   color: @foreground;
 }
 entry:disabled, textview:disabled {

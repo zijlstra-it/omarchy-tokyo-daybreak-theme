@@ -1,4 +1,4 @@
-/* Nous Research — light white waybar, all hex hardcoded */
+/* Tokyo Daybreak — Tokyo Day waybar, all hex hardcoded */
 
 * {
   border: none;
@@ -6,7 +6,7 @@
   min-height: 0;
   font-family: "JetBrainsMono Nerd Font", monospace;
   font-size: 11px;
-  color: #12327A;
+  color: #080808;
   background: transparent;
 }
 
@@ -17,15 +17,15 @@ window#waybar {
 #waybar > box {
   margin: 10px 16px 0;
   padding: 0 10px;
-  background-color: rgba(255, 255, 255, 0.96);
-  border: 1px solid rgba(22, 75, 255, 0.28);
-  box-shadow: 0 6px 22px rgba(18, 50, 122, 0.12);
+  background-color: rgba(233, 236, 245, 0.96);
+  border: 1px solid rgba(55, 96, 191, 0.28);
+  box-shadow: 0 6px 22px rgba(48, 60, 96, 0.12);
 }
 
 #custom-omarchy {
   min-width: 94px;
   padding: 0 8px;
-  color: #164BFF;
+  color: #3760bf;
   font-weight: 700;
   letter-spacing: 1px;
 }
@@ -38,16 +38,16 @@ window#waybar {
   all: unset;
   padding: 0 8px;
   margin: 7px 2px;
-  color: #6076A8;
+  color: #596583;
 }
 
 #workspaces button:hover {
-  color: #164BFF;
+  color: #3760bf;
 }
 
 #workspaces button.active {
   color: #FFFFFF;
-  background-color: #164BFF;
+  background-color: #3760bf;
   padding: 0 8px;
 }
 
@@ -57,14 +57,14 @@ window#waybar {
 
 #window {
   padding: 0 10px;
-  color: #6076A8;
+  color: #596583;
   font-size: 10px;
 }
 
 #clock {
   padding: 0 18px;
   margin: 0 4px;
-  color: #12327A;
+  color: #080808;
   font-weight: 700;
   font-size: 12px;
   letter-spacing: 0.4px;
@@ -81,31 +81,31 @@ window#waybar {
 #tray {
   padding: 0 9px;
   margin: 7px 0;
-  border-left: 1px solid rgba(184, 201, 245, 0.8);
+  border-left: 1px solid rgba(196, 210, 240, 0.8);
 }
 
-#network   { color: #245CFF; }
-#pulseaudio { color: #245CFF; }
-#cpu       { color: #6076A8; }
-#memory    { color: #6076A8; }
-#battery   { color: #157A5B; }
-#bluetooth { color: #245CFF; }
+#network   { color: #315fc9; }
+#pulseaudio { color: #315fc9; }
+#cpu       { color: #596583; }
+#memory    { color: #596583; }
+#battery   { color: #456a27; }
+#bluetooth { color: #315fc9; }
 #tray      { padding-right: 3px; }
 
 #battery.warning,
 #cpu.warning,
-#memory.warning { color: #9A6700; }
+#memory.warning { color: #80601c; }
 
 #battery.critical:not(.charging),
 #cpu.critical,
-#memory.critical { color: #B4233C; }
+#memory.critical { color: #ad3459; }
 
-#pulseaudio.muted    { color: #6076A8; }
-#network.disconnected { color: #6076A8; }
+#pulseaudio.muted    { color: #596583; }
+#network.disconnected { color: #596583; }
 
 tooltip {
   padding: 8px 10px;
-  background-color: #FFFFFF;
-  border: 1px solid #164BFF;
-  color: #12327A;
+  background-color: #f7f8fc;
+  border: 1px solid #3760bf;
+  color: #080808;
 }

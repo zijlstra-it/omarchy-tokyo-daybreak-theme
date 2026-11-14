@@ -1,0 +1,77 @@
+#!/usr/bin/env bash
+# Tokyo Daybreak theme-set hook.
+# Applies the light (Tokyo Day) GUI surfaces while colors.toml keeps the dark
+# Tokyo Night palette for terminals/editors. Scoped to this theme only.
+set -euo pipefail
+
+case "${1:-}" in
+  tokyo-daybreak|tokyo_daybreak|Tokyo-Daybreak|"Tokyo Daybreak") ;;
+  *) exit 0 ;;
+esac
+
+CONFIG_ROOT="${XDG_CONFIG_HOME:-$HOME/.config}"
+# Omarchy 3.x stores the active theme in $HOME/.local/state; older installs
+# used $CONFIG_ROOT/omarchy/current. Support both.
+if [[ -d "$HOME/.local/state/omarchy/current/theme" ]]; then
+  THEME_DIR="$HOME/.local/state/omarchy/current/theme"
+else
+  THEME_DIR="$CONFIG_ROOT/omarchy/current/theme"
+fi
+
+[[ -d "$THEME_DIR" ]] || exit 0
+
+# GTK / Libadwaita light surfaces
+if [[ -f "$THEME_DIR/gtk.css" ]]; then
+  mkdir -p "$CONFIG_ROOT/gtk-3.0" "$CONFIG_ROOT/gtk-4.0"
+  cp -f "$THEME_DIR/gtk.css" "$CONFIG_ROOT/gtk-3.0/gtk.css" 2>/dev/null || true
+  cp -f "$THEME_DIR/gtk.css" "$CONFIG_ROOT/gtk-4.0/gtk.css" 2>/dev/null || true
+fi
+
+# Launchers
+if [[ -f "$THEME_DIR/fuzzel.ini" ]]; then
+  mkdir -p "$CONFIG_ROOT/fuzzel"
+  cp -f "$THEME_DIR/fuzzel.ini" "$CONFIG_ROOT/fuzzel/fuzzel.ini" 2>/dev/null || true
+fi
+if [[ -f "$THEME_DIR/walker.css" ]]; then
+  mkdir -p "$CONFIG_ROOT/walker"
+  cp -f "$THEME_DIR/walker.css" "$CONFIG_ROOT/walker/style.css" 2>/dev/null || true
+fi
+
+# Optional full Waybar layout
+if [[ -f "$THEME_DIR/waybar/config.jsonc" && -f "$THEME_DIR/waybar/style.css" ]]; then
+  mkdir -p "$CONFIG_ROOT/waybar"
+  cp -f "$THEME_DIR/waybar/config.jsonc" "$CONFIG_ROOT/waybar/config.jsonc" 2>/dev/null || true
+  cp -f "$THEME_DIR/waybar/style.css" "$CONFIG_ROOT/waybar/style.css" 2>/dev/null || true
+fi
+
+# Notifications and OSD
+if [[ -f "$THEME_DIR/mako.ini" ]]; then
+  mkdir -p "$CONFIG_ROOT/mako"
+  cp -f "$THEME_DIR/mako.ini" "$CONFIG_ROOT/mako/config" 2>/dev/null || true
+fi
+if [[ -f "$THEME_DIR/swayosd.css" ]]; then
+  mkdir -p "$CONFIG_ROOT/swayosd"
+  cp -f "$THEME_DIR/swayosd.css" "$CONFIG_ROOT/swayosd/style.css" 2>/dev/null || true
+fi
+
+# Prompt and system info shown inside the (dark) terminal
+if [[ -f "$THEME_DIR/starship.toml" ]]; then
+  cp -f "$THEME_DIR/starship.toml" "$CONFIG_ROOT/starship.toml" 2>/dev/null || true
+fi
+if [[ -f "$THEME_DIR/fastfetch.jsonc" ]]; then
+  mkdir -p "$CONFIG_ROOT/fastfetch"
+  cp -f "$THEME_DIR/fastfetch.jsonc" "$CONFIG_ROOT/fastfetch/config.jsonc" 2>/dev/null || true
+fi
+
+# Light desktop mode for GUI apps: browsers follow the device color-scheme
+# (BrowserColorScheme "device"), so prefer-light keeps Firefox/Chromium light;
+# GTK/libadwaita stay on light Adwaita. Foot ignores this — its theme-shipped
+# foot.ini is dark in [colors-dark], foot's default theme section.
+if command -v gsettings >/dev/null 2>&1; then
+  gsettings set org.gnome.desktop.interface gtk-theme Adwaita        >/dev/null 2>&1 || true
+  gsettings set org.gnome.desktop.interface color-scheme prefer-light >/dev/null 2>&1 || true
+  gsettings set org.gnome.desktop.interface cursor-theme Adwaita      >/dev/null 2>&1 || true
+fi
+
+command -v omarchy-restart-waybar >/dev/null 2>&1 && omarchy-restart-waybar || true
+command -v omarchy-restart-walker >/dev/null 2>&1 && omarchy-restart-walker || true

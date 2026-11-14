@@ -1,44 +1,44 @@
-# Nous Research — Omarchy Quattro surfaces.
-# White paper bar and panels, deep navy text, electric cobalt for focus.
-# Bar matches the Waybar light layout (white surface, #12327A text, #164BFF active).
+# Tokyo Daybreak — Omarchy Quattro surfaces.
+# Light Tokyo Day bar and panels; terminals keep the dark Tokyo Night palette
+# from colors.toml (foot.ini is dark in both [colors] and [colors-dark]).
 
 [bar]
-background = "#FFFFFF"
+background = "#e9ecf5"
 background-alpha = 1.0
-text = "#12327A"
-active = "#164BFF"
+text = "#080808"
+active = "#3760bf"
 scale-with-font = true
 size-horizontal = 26
 size-vertical = 28
 
 [hyprland]
-active-border = "#164BFF"
-active-border-foreground = "#FFFFFF"
+active-border = "#3760bf"
+active-border-foreground = "#3760bf"
 
 [controls]
-normal-color = "#6076A8"
+normal-color = "#596583"
 normal-fill-alpha = 0.12
 normal-border-width = 1
 normal-border-alpha = 0.50
 
-hover-cursor-color = "#164BFF"
+hover-cursor-color = "#3760bf"
 hover-cursor-fill-alpha = 0.12
 hover-cursor-border-width = 1
 hover-cursor-border-alpha = 0.70
 
-focus-color = "#164BFF"
+focus-color = "#3760bf"
 focus-fill-alpha = 0.10
 focus-border-width = 1
 focus-border-alpha = 0.90
 
-selected-color = "#164BFF"
+selected-color = "#3760bf"
 selected-fill-alpha = 0.16
 selected-border-width = 1
 selected-border-alpha = 0.70
 
-pressed-color = "#12327A"
+pressed-color = "#303c60"
 pressed-fill-alpha = 0.16
-selection-color = "#164BFF"
+selection-color = "#3760bf"
 selection-fill-alpha = 0.45
 
 [spacing]
@@ -55,94 +55,94 @@ heading = 16
 icon-large = 18
 
 [popups]
-background = "#FFFFFF"
+background = "#e9ecf5"
 background-alpha = 1.0
-text = "#12327A"
-border = "#164BFF"
+text = "#080808"
+border = "#3760bf"
 border-alpha = 1.0
 border-width = 2
 
 [tooltip]
-background = "#FFFFFF"
+background = "#e9ecf5"
 background-alpha = 1.0
-text = "#12327A"
-border = "#164BFF"
+text = "#080808"
+border = "#3760bf"
 border-alpha = 0.90
 border-width = 1
 
 [notifications]
-background = "#FFFFFF"
+background = "#e9ecf5"
 background-alpha = 1.0
-text = "#12327A"
-border = "#164BFF"
+text = "#080808"
+border = "#3760bf"
 border-alpha = 1.0
 border-width = 2
-countdown = "#164BFF"
+countdown = "#3760bf"
 
 [launcher]
-background = "#FFFFFF"
+background = "#e9ecf5"
 background-alpha = 1.0
-text = "#12327A"
-border = "#164BFF"
+text = "#080808"
+border = "#929db8"
 border-alpha = 1.0
 border-width = 2
-scrim = "#12327A"
-scrim-alpha = 0.25
-selected-background = "#164BFF"
-selected-background-alpha = 0.16
-selected-text = "#164BFF"
-selected-border = "#164BFF"
-selected-border-alpha = 0.45
+scrim = "#253252"
+scrim-alpha = 0.20
+selected-background = "#c4d2f0"
+selected-background-alpha = 1.0
+selected-text = "#283457"
+selected-border = "#3760bf"
+selected-border-alpha = 1.0
 selected-border-width = 1
 
 [menu]
-background = "#FFFFFF"
+background = "#e9ecf5"
 background-alpha = 1.0
-text = "#12327A"
-border = "#164BFF"
+text = "#080808"
+border = "#929db8"
 border-alpha = 1.0
 border-width = 2
-scrim = "#12327A"
-scrim-alpha = 0.25
-selected-background = "#164BFF"
-selected-background-alpha = 0.16
-selected-text = "#164BFF"
-selected-border = "#164BFF"
-selected-border-alpha = 0.45
+scrim = "#253252"
+scrim-alpha = 0.20
+selected-background = "#c4d2f0"
+selected-background-alpha = 1.0
+selected-text = "#283457"
+selected-border = "#3760bf"
+selected-border-alpha = 1.0
 selected-border-width = 1
 
 [polkit]
-background = "#1E3061"
-background-alpha = 0.85
-text = "#E8EEFF"
-text-error = "#F06070"
-border = "#164BFF"
-border-error = "#F06070"
+background = "#e9ecf5"
+background-alpha = 1.0
+text = "#080808"
+text-error = "#ad3459"
+border = "#3760bf"
+border-error = "#ad3459"
 border-alpha = 1.0
 border-width = 2
-scrim = "#1E3061"
-scrim-alpha = 0.35
-accent = "#164BFF"
+scrim = "#e9ecf5"
+scrim-alpha = 0.5
+accent = "#3760bf"
 
 [lock]
-background = "#1E3061"
-background-alpha = 0.85
-text = "#E8EEFF"
-placeholder = "#A8BDED"
-text-error = "#F06070"
-border = "#164BFF"
-border-active = "#4D8FFF"
-border-error = "#F06070"
+background = "#e9ecf5"
+background-alpha = 0.8
+text = "#080808"
+placeholder = "#596583"
+text-error = "#ad3459"
+border = "#3760bf"
+border-active = "#3760bf"
+border-error = "#ad3459"
 border-alpha = 1.0
 border-width = 2
-selection = "#164BFF"
-selection-alpha = 0.38
+selection = "#3760bf"
+selection-alpha = 0.45
 
 [image-picker]
-scrim = "#12327A"
-scrim-alpha = 0.30
-text = "#FFFFFF"
-selected-border = "#164BFF"
+scrim = "#e9ecf5"
+scrim-alpha = 0.5
+text = "#080808"
+selected-border = "#3760bf"
 selected-border-alpha = 1.0
-unselected-border = "#6076A8"
-unselected-border-alpha = 1.0
+unselected-border = "#596583"
+unselected-border-alpha = 0.28

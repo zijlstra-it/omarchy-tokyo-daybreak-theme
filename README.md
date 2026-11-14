@@ -1,72 +1,56 @@
-# Nous Research — Omarchy theme
+# Tokyo Daybreak — Omarchy theme
 
-<img width="2560" height="1440" alt="screenshot-2026-08-11_16-46-22" src="https://github.com/user-attachments/assets/08415f54-6c3b-4b67-b564-23c8ec8da307" />
+## Fork & credits
 
-An original Omarchy theme built around the Nous Research visual language: cool blue paper, electric cobalt, engraved linework, and precise research-instrument UI.
+Tokyo Daybreak is a **fork of the "Nous" Omarchy theme**
+(https://github.com/notkisk/omarchy-nous-theme), adapted to give it a Tokyo
+style: a light **Tokyo Day** desktop with dark **Tokyo Night** terminals and
+editors. The original theme is MIT-licensed — see `LICENSE`.
 
-The desktop stays white and precise, with pale blue paper surfaces, deep-blue text, and electric cobalt reserved for focus and selection.
+The wallpapers in `backgrounds/` are third-party artwork; see `LICENSE` for 
+the credits of the rightful owners.
+
+## About
+
+A light/dark hybrid in the Tokyo family: the **desktop GUI is light Tokyo Day**
+(bar, panels, GTK, browsers, launchers) while **terminals and editors stay dark
+Tokyo Night** (`#1a1b26`).
+
+## How the split works
+
+- `light.mode` (empty marker file) makes the desktop mode "light", so GUI apps
+  and browsers render the light surfaces.
+- `colors.toml` deliberately has **no `mode` key** and keeps the dark Tokyo
+  Night palette for foot/kitty/alacritty/ghostty and other terminal apps.
+- `foot.ini` pins `[colors-dark]` to the dark palette (foot's default theme
+  section), so the terminal stays dark even with `prefer-light` set.
+- `shell.toml` defines the light Tokyo Day bar and Hyprland borders.
+- `neovim.lua` loads `tokyonight-night` via LazyVim.
+
+## Hooks
+
+Omarchy only executes hooks from `~/.config/omarchy/hooks/<event>.d/`, never
+from inside a theme directory. The `omarchy-hooks/theme-set.d/tokyo-daybreak`
+script in this theme is installed there by `install.sh`; it copies gtk.css,
+fuzzel.ini, walker.css, the Waybar layout, mako.ini, swayosd.css and
+starship.toml into the matching config locations, sets the light desktop
+mode (`gsettings`: Adwaita + prefer-light), and restarts Waybar/Walker.
+Like the stock tokyo-night theme, this theme ships no fastfetch files, so
+fastfetch uses the system default (`/etc/fastfetch/config.jsonc`).
 
 ## Install
 
-Install directly with Omarchy:
-
 ```bash
-omarchy-theme-install https://github.com/notkisk/omarchy-nous-theme.git
+./install.sh
+# or:
+omarchy theme set tokyo-daybreak
 ```
 
-Then select the installed Nous Research theme if Omarchy does not activate it automatically.
+## Backgrounds
 
-The included `install.sh` also installs the scoped global theme hook required for Fastfetch, Waybar's full layout, GTK, Starship, btop refresh, and Kitty's final caret override. This matters because Omarchy does not execute hooks stored inside a theme directory.
-
-The wallpaper is selected automatically from `backgrounds/` by Omarchy. To cycle it later:
+Wallpapers live in `backgrounds/` and are picked automatically by Omarchy.
+Cycle them later with:
 
 ```bash
 omarchy theme bg next
 ```
-
-### Optional Waybar layout(only works for Omarchy versions prior to Omarchy quatro)
-
-To overwrite the active Waybar configuration with this theme's layout:
-
-```bash
-waybar_theme_dir="$(mktemp -d)"
-trap 'rm -rf "$waybar_theme_dir"' EXIT
-git clone --depth 1 https://github.com/notkisk/nous-theme.git "$waybar_theme_dir/nous-theme"
-mkdir -p ~/.config/waybar
-cp "$waybar_theme_dir/nous-theme/waybar/config.jsonc" \
-  "$waybar_theme_dir/nous-theme/waybar/style.css" ~/.config/waybar/
-omarchy restart waybar
-```
-
-
-## Included components
-
-- `colors.toml` — source palette for Omarchy's dynamic templates.
-- `kitty.conf` — paper terminal, complete ANSI palette, selection/tabs/borders, and a smooth beam caret with Kitty's cursor trail.
-- `fastfetch.jsonc` + `fastfetch-logo.txt` — compact blue line-art Nous mark with a clean terminal fallback.
-- `assets/nous-research-girl.png` — the supplied Nous Research girl artwork used by Neovim through `3rd/image.nvim` and Kitty's Graphics Protocol.
-- `lua/nous/` + `colors/nous.lua` — standalone Neovim colorscheme with Treesitter, LSP, completion, Telescope, WhichKey, statusline/tabline, floats, search, folds, Git signs, inactive-pane groups, and the optional artwork layer.
-- `waybar/` — an optional full Waybar configuration and matching layout CSS using only real Waybar modules.
-- `walker.css` + `fuzzel.ini` — native Omarchy launcher styling plus a matching Fuzzel profile.
-- `mako.ini`, `gtk.css`, `hyprland.conf`, `hyprlock.conf`, `swayosd.css`, and supporting terminal/editor files.
-
-## Design notes
-
-The palette is intentionally not a generic blue-black hacker palette. White and pale blue paper provide the ground, cobalt is reserved for focus and decisions, and restrained coral/teal/ochre colors make diagnostics and status states legible. Existing wallpaper and illustration assets are left untouched.
-
-The default Fastfetch portrait is compact Unicode linework, so it works in any terminal. Kitty users can preview the supplied PNG beside the same system modules with `fastfetch --kitty ~/.config/omarchy/current/theme/assets/nous-research-girl.png`; the fallback remains defined in `fastfetch-logo.txt`.
-
-## Dark themed version of this
-
-[Dark themed version](https://github.com/notkisk/Omarchy-nous-research-purple)
-
-<img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/2b1825be-4831-409b-b6b2-2d71c74ffa84" />
-
-Install directly with Omarchy:
-
-```
-omarchy-theme-install https://github.com/notkisk/Omarchy-nous-research-purple
-```
-
-
-

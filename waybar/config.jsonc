@@ -9,7 +9,7 @@
   "modules-right": ["network", "pulseaudio", "cpu", "memory", "battery", "bluetooth", "tray"],
 
   "custom/omarchy": {
-    "format": "◈  NOUS",
+    "format": "◈  TOKYO",
     "on-click": "omarchy-menu",
     "on-click-right": "xdg-terminal-exec",
     "tooltip": false
